@@ -7,6 +7,10 @@ function handleSubmit(ev) {
   const name = f.personName.value
   const favoriteColor = f.favoriteColor.value
   const age = f.age.value
+
+  const colorDiv = `
+    <div style="background-color: ${favoriteColor}; width: 100px; height: 50px;"></div>
+  `
   
   // details.innerHTML = `<em>${name}</em>`
 
@@ -17,7 +21,7 @@ function handleSubmit(ev) {
   details.innerHTML = `
     <ul>
       <li>Name: ${name}</li>
-      <li>Favorite Color: ${favoriteColor}</li>
+      <li>Favorite Color: ${colorDiv}</li>
       <li>Age: ${age}</li>
     </ul>
   `
