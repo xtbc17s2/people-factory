@@ -6,7 +6,7 @@ function handleSubmit(ev) {
   const details = document.querySelector('#details')
   const name = f.personName.value
   
-  details.innerHTML = '<em>' + name + '</em>'
+  details.innerHTML = `<em>${name}</em>`
 }
 
 personForm.addEventListener('submit', handleSubmit)
