@@ -9,21 +9,36 @@ function renderColor(color) {
   return colorDiv
 }
 
+function renderListItem(fieldName, value) {
+  const li = document.createElement('li')
+  li.innerHTML = `${fieldName}: ${value}`
+  return li
+}
+
+function renderList(personData) {
+  const list = document.createElement('ul')
+
+  // Loop over ['name', 'favoriteColor', 'age']
+  Object.keys(personData).map(function(fieldName) {
+    const li = renderListItem(fieldName, personData[fieldName])
+    list.appendChild(li)
+  })
+
+  return list
+}
+
 function handleSubmit(ev) {
   ev.preventDefault()
   const f = ev.target
   const details = document.querySelector('#details')
-  const name = f.personName.value
-  const favoriteColor = f.favoriteColor.value
-  const age = f.age.value
 
-  details.innerHTML = `
-    <ul>
-      <li>Name: ${name}</li>
-      <li>Favorite Color: ${renderColor(favoriteColor).outerHTML}</li>
-      <li>Age: ${age}</li>
-    </ul>
-  `
+  const person = {
+    name: f.personName.value,
+    favoriteColor: renderColor(f.favoriteColor.value).outerHTML,
+    age: f.age.value,
+  }
+
+  details.appendChild(renderList(person))
 }
 
 personForm.addEventListener('submit', handleSubmit)
