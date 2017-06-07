@@ -1,4 +1,4 @@
-(function() {
+{
   const personForm = document.querySelector('form#personForm')
 
   function renderColor(color) {
@@ -48,6 +48,4 @@
   }
 
   personForm.addEventListener('submit', handleSubmit)
-})()
-
-// IIFE
+}
