@@ -11,13 +11,17 @@ function renderColor(color) {
 
 function renderListItem(label, value) {
   const item = document.createElement('li')
-  item.innerHTML = `${label}: ${value}`
-
+  const dt = document.createElement('dt')
+  const dd = document.createElement('dd')
+  dt.textContent = label
+  dd.innerHTML = value
+  item.appendChild(dt)
+  item.appendChild(dd)
   return item
 }
 
 function renderList(personData) {
-  const list = document.createElement('ul')
+  const list = document.createElement('dl')
 
   // ['name', 'favoriteColor', 'age']
   Object.keys(personData).map(function(label) {
