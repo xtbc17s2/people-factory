@@ -11,12 +11,17 @@ function renderColor(color) {
 
 function renderListItem(fieldName, value) {
   const li = document.createElement('li')
-  li.innerHTML = `${fieldName}: ${value}`
+  const dt = document.createElement('dt')
+  const dd = document.createElement('dd')
+  dt.textContent = fieldName
+  dd.innerHTML = value
+  li.appendChild(dt)
+  li.appendChild(dd)
   return li
 }
 
 function renderList(personData) {
-  const list = document.createElement('ul')
+  const list = document.createElement('dl')
 
   // Loop over ['name', 'favoriteColor', 'age']
   Object.keys(personData).map(function(fieldName) {
